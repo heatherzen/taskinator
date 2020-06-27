@@ -1,6 +1,6 @@
 var formEl = document.querySelector("#task-form");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
-var taskIdCounter = parseInt(id);
+var taskIdCounter = 0
 var pageContentEl = document.querySelector("#page-content");
 var tasksInProgressEl = document.querySelector("#tasks-in-progress");
 var tasksCompletedEl = document.querySelector("#tasks-completed");
@@ -283,11 +283,11 @@ var createTaskActions = function(taskId) {
     // Converts tasks from the stringified format back into an array of objects
     // Iterates through tasks array and creates task elements on the page from it
     var loadTasks = function() {
-      localStorage.getItem("tasks", saveTasks);
+      var tasks = localStorage.getItem("tasks", saveTasks);
       tasks = JSON.parse(tasks);
       console.log(tasks);
-
-      for(i = 0; i < tasks.length; i++) {
+    
+      for(var i = 0; i < tasks.length; i++) {
         console.log(tasks[i]);
       }
     }
